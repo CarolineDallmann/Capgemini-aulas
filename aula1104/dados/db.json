@@ -1,0 +1,25 @@
+{
+    "contatos": [
+        {
+            "id": 1,
+            "nome": "Ana",
+            "telefone": "123-566",
+            "email": "ana@gmail.com",
+            "foto": "./imagens/marge.png"
+        },
+        {
+            "id": 2,
+            "nome": "João",
+            "telefone": "456-789",
+            "email": "joao@gmail.com",
+            "foto": "./imagens/homer.png"
+        },
+        {
+            "id": 3,
+            "nome": "Maria",
+            "telefone": "789-123",
+            "email": "maria@gmail.com",
+            "foto": "./imagens/lisa.png"
+        }
+    ]
+}

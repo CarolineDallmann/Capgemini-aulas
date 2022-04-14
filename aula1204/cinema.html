@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema</title>
+
+    <style>
+        .vermelho{
+            background-color: rgb(177, 85, 85);
+        }
+        .verde{
+            background-color: rgb(82, 160, 82);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>Cinema</p>
+    </div>
+    <hr>
+    <div>
+        <label for="cadeira">Informe a quantidade de cadeiras</label>
+        <input id="cadeira" type="number">
+        <button onclick="criar()">Criar sala</button>
+    </div>
+
+    <hr>
+    <div id="botoesCadeiras"></div>
+    <hr>
+    <div id="infos">
+        <span id="livre"></span>
+        <span id="ocupado"></span>
+    </div>
+
+    <script>
+
+        function criar() {
+            var input = document.querySelector('#cadeira')
+            var exibeBotao = document.querySelector('#botoesCadeiras')
+            exibeBotao.innerHTML = ""
+        
+            for (i = 0; i < Number(input.value); i++) {
+                
+                var botao = document.createElement("button")
+                botao.innerHTML = `${i + 1}`
+                botao.setAttribute("id", `${i + 1}`)
+                botao.setAttribute("class", "verde")
+                botao.setAttribute('onclick', "reservar(this)")
+                exibeBotao.appendChild(botao)
+
+            }
+            totalLivres()
+
+            input.value = ""
+           
+        }
+
+        function totalLivres(){
+            var livre = document.getElementsByClassName("verde").length
+            var ocupada = document.getElementsByClassName("vermelho").length
+            document.querySelector("#livre").innerHTML = `Total livres: ${livre}`
+            document.querySelector("#ocupado").innerHTML = `Total livres: ${ocupada}`
+        }
+
+
+        function reservar(botao) {
+            var classe = botao.getAttribute('class')
+            console.log(classe);
+            if (classe === "verde"){
+                botao.setAttribute("class", "vermelho")
+
+            }else{
+                botao.setAttribute("class", "verde")
+            }
+        
+            totalLivres()
+        }
+
+    </script>
+</body>
+
+</html>

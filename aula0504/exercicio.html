@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício</title>
+    <style>
+        .item1 {
+            grid-area: header;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .item2 {
+            grid-area: menu;
+            display: grid;
+        }
+
+        .item3 {
+            grid-area: main;
+            text-align: center;
+        }
+
+        .item4 {
+            grid-area: right;
+            text-align: right;
+        }
+
+        .item5 {
+            grid-area: footer;
+            text-align: center;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-areas:
+                'header header header header header'
+                'menu main main  main right'
+                'menu footer footer footer footer ';
+            gap: 2px;
+            background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
+
+        }
+
+        .grid-container>div {
+            background-color: rgba(255, 255, 255, 0.8);
+
+            padding: 20px 20px;
+            font-size: 20px;
+        }
+
+        .item2,
+        .item4 {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="item1">
+            <h2>Multi Store</h2>
+            <div>
+                <label for="pesquisar">Pesquisar</label>
+                <input type="text" id="pesquisar">
+            </div>
+            <button>Login</button>
+        </div>
+        <div class="item2">
+            <div class="menu1">Perfil</div>
+            <div class="menu2">Endereço</div>
+            <div class="menu3">Formas de Pagamento</div>
+            <div class="menu4">Meus Pedidos</div>
+        </div>
+        <div class="item3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi placeat quibusdam
+            similique deserunt, nostrum nobis voluptate corrupti voluptas et odio ipsa quo sit rerum aliquid quidem modi
+            at amet recusandae.</div>
+        <div class="item4">Right</div>
+        <div class="item5">Footer</div>
+    </div>
+</body>
+
+</html>

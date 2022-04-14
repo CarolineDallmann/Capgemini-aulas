@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="clicar()">Clicar</button>
+    <div>
+        <ol>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ol>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+    <label></label>
+    <script>
+        function clicar(){
+            var [, , terceiroLi] = document.querySelectorAll('div ol li')
+            console.log(terceiroLi.innerHTML);
+            var lista = document.getElementsByTagName("div")[0]
+            document.getElementsByTagName('label')[0].innerHTML = lista.children[0].children[1].innerHTML
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <button onclick="criar()">Criar</button>
+
+    <script>
+        function trocaCssParagrafo() {
+           var x = document.getElementsByTagName('p')[0]
+           x.setAttribute("class", "red")
+
+        }
+        function criar() {
+            var paragrafo = document.createElement('p')
+            paragrafo.innerHTML = '<span> Olá </span'
+
+            var parent = document.getElementsByTagName("div")[0]
+            var btn = document.createElement("button")
+            btn.innerHTML = "Trocar CSS "
+            btn.setAttribute('onclick', 'trocaCssParagrafo()')
+
+
+
+            parent.appendChild(paragrafo)
+            parent.appendChild(btn)
+
+    
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente</title>
+    <link rel="stylesheet" href="./estilos/estiloCliente.css">
+    <script src="./script/javascriptCliente.js"></script>
+</head>
+
+<body>
+    <h2>Cadastro de cliente</h2>
+    <div class="centralizador">
+        <form action="#" method="post">
+            <div class="formulario">
+                <div class="esquerda">
+                    <div>
+                        <div class="imagem">
+                            <img src="" alt="" width="100px" height="100px">
+                        </div>
+                        <div>
+                            <input type="file" placeholder="Selecionar imagem">
+    
+                        </div>
+                    </div>
+    
+                </div>
+                <div class="direita">
+                    <div class="linha">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" placeholder="Digite o nome">
+                    </div>
+                    <div class="linha"> 
+                        <label for="telefone">Telefone</label>
+                        <input type="text" id="telefone" placeholder="Digite o telefone">
+                    </div>
+                    <div class="linha">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Digite o email">
+                    </div>
+                    <div class="linha">
+                        <label for="rua">Rua</label>
+                        <input type="text" id="rua" placeholder="Digite a rua">
+                    </div>
+                    <div class="linha"><label for="bairro">Bairro</label>
+                        <input type="text" id="bairro" placeholder="Digite o bairro">
+                    </div>
+                    <div class="linha">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade" placeholder="Digite a cidade">
+                    </div>
+                    <div class="linha">
+                        <label for="cep">Cep</label>
+                        <input type="text" id="cep" placeholder="Digite o cep">
+                    </div>
+                    <div class="linha">
+                        <label for="limiteCred">Limite Crédito</label>
+                        <input type="number" id="limiteCred" placeholder="Digite o limite">
+                    </div>
+                </div>
+    
+            </div>
+            <div class="botoes">
+                <button type="button" onclick="salvar()">Salvar</button>
+                <button type="button" onclick="cancelar()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal</title>
+    <script src="./scripts/classes.js"></script>
+    <link rel="stylesheet" href="./estilos/estilo.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="entrada">
+            <input id="nome" type="text" placeholder="Informe nome" required>
+            <input id="telefone" type="text" placeholder="Informe telefone" required>
+            <input id="email" type="email" placeholder="Informe email" required>
+        </div>
+
+        <div class="botoes">
+            <button class="salvar" onclick="gravar()">Salvar</button>
+            <button class="cancelar">Cancelar</button>
+        </div>
+    </div>
+    
+
+    <script>
+        function gravar() {
+            var nome = document.querySelector("#nome").value
+            var telefone = document.querySelector("#telefone").value
+            var email = document.querySelector("#email").value
+
+            let obj = new Contato(0, nome, telefone, email)
+            obj.salvar()
+            
+        }
+    </script>
+</body>
+
+</html>

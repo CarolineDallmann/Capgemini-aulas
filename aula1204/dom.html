@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .vermelho{
+            color: red;
+        }
+        .azul{
+            color: blue;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <button onclick="criar()">Criar</button>
+    <button onclick="ativarCSS()">Atribuir CSS</button>
+    <button onclick="pegarCSS()">Pegar CSS</button>
+
+
+    <script>
+        function criar() {
+            var parent = document.getElementsByTagName('div')[0]
+            var paragrafo = document.createElement("p")
+            paragrafo.innerHTML = 'Olá'
+            paragrafo.setAttribute('class', 'azul')
+
+            parent.appendChild(paragrafo)
+
+            var listaFruta = document.createElement('ol')
+            listaFruta.innerHTML += "<li>Maçã</li>"
+            listaFruta.innerHTML += "<li>Maçã</li>"
+            listaFruta.innerHTML += "<li>Maçã</li>"
+            parent.appendChild(listaFruta)
+
+            var listaTarefas = document.createElement('ul')
+            var li = document.createElement('li')
+            li.style.color = "green"
+            li.innerHTML = "Roçar grama"
+            listaTarefas.appendChild(li)
+            parent.appendChild(listaTarefas)
+
+            var bt = document.createElement('button')
+            bt.innerHTML = 'oi'
+            br.setAttribute('onclick',"alert('oi')")
+            parent.appendChild(br)
+        }
+         function ativarCSS(){
+             document.getElementsByTagName('p')[0].setAttribute('class', 'vermelho')
+         }
+
+         function pegarCSS(){
+             var classeCSS = document.getElementsByTagName('p')[0].getAttribute('class')
+             alert(classeCSS)
+         }
+
+    </script>
+</body>
+
+</html>

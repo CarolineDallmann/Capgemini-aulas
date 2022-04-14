@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</head>
+
+<body onload="loadDados()">
+    <div class="container mb-5">
+        <div>
+            <form class="was-validated" novalidate>
+                <label class="form-label" for="descricao">Descricao</label>
+                <input class="form-control" type="text" id="descricao" placeholder="Informe descrição" required>
+                <div class="invalid-feedback">Informe descrição</div>
+
+                <label class="form-label" for="preco">Preço</label>
+                <input class="form-control" type="text" id="preco" placeholder="Informe preço" required>
+                <div class="invalid-feedback">Informe preço</div>
+
+                <label class="form-label" for="estoque">Estoque</label>
+                <input class="form-control" type="number" id="estoque" placeholder="Informe estoque" required>
+                <div class="invalid-feedback">Informe estoque</div>
+
+                <label class="form-label" for="fornecedor">Fornecedor</label>
+                <select class="form-select" name="fornecedor" id="fornecedor" required>
+                    <!-- preencher dinamicamente -->
+                </select>
+
+                <label class="form-label" for="categoria">Categoria</label>
+                <select class="form-select" name="categoria" id="categoria" required>
+                    <!-- preencher dinamicamente -->
+                </select>
+
+                <div class="mt-3">
+                    <button type="button" class="btn btn-outline-success" onclick="salvar()">Salvar</button>
+                    <button type="reset" class="btn btn-outline-danger">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead class="table-warning">
+            <tr>
+                <th>Id</th>
+                <th>Descriçao</th>
+                <th>Preço</th>
+                <th>Estoque</th>
+                <th>Fornecedor</th>
+                <th>Categoria</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- preencher dinamicamente -->
+        </tbody>
+    </table>
+</body>
+<script>
+    function salvar() {
+        let descricao = document.querySelector("#descricao")
+        let preco = document.querySelector("#preco")
+        let estoque = document.querySelector("#estoque")
+        let fornecedor = document.querySelector("#fornecedor")
+        let categoria = document.querySelector("#categoria")
+
+        var produto = {
+            descricao: descricao.value,
+            preco: preco.value,
+            estoque: estoque.value,
+            fornecedor: fornecedor.value,
+            categoria: categoria.value
+        }
+
+        fetch("http://localhost:3000/produtos", {
+            method: 'POST',
+            body: JSON.stringify(produto),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(prod => prod.json())
+            .then(x => console.log(x))
+    }
+
+    function loadDados() {
+        fetch("http://localhost:3000/produtos")
+            .then(x => x.text())
+            .then(dadoProduto => displayTabela(dadoProduto))
+
+        fetch("http://localhost:3000/fornecedores")
+            .then(x => x.text())
+            .then(dadoFornecedor => displaySelect(dadoFornecedor, "fornecedor"))
+
+        fetch("http://localhost:3000/categorias")
+            .then(x => x.text())
+            .then(dadoCategoria => displaySelect(dadoCategoria, "categoria"))
+    }
+
+    function displaySelect(lista, querySelector) {
+        let listaJson = JSON.parse(lista)
+        let option = "<option>----</option>"
+        for (let indice in listaJson) {
+            option += "<option var=" + listaJson[indice].id + ">" + listaJson[indice].nome + "</option>"
+        }
+        document.getElementById(querySelector).innerHTML = option
+    }
+
+
+    function displayTabela(lista) {
+        let listaJson = JSON.parse(lista)
+        let trs = ""
+        for (let indice in listaJson) {
+            trs += '<tr>'
+            trs += '<td>' + listaJson[indice].id + '</td>'
+            trs += '<td>' + listaJson[indice].descricao + '</td>'
+            trs += '<td>' + listaJson[indice].preco + '</td>'
+            trs += '<td>' + listaJson[indice].estoque + '</td>'
+            trs += '<td>' + listaJson[indice].categoria + '</td>'
+            trs += '<td>' + listaJson[indice].fornecedor + '</td>'
+            trs += '</tr>'
+        }
+        document.getElementsByTagName('tbody')[0].innerHTML = trs
+    }
+
+</script>
+
+
+</html>

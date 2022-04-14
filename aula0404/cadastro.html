@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="./estilos/estiloCadastro.css"/>
+    <script src="./scripts/scriptCadastro.js" defer></script>
+</head>
+
+<body>
+    <div>
+        <form action="#" method="post">
+            <label for="nome">Nome</label>
+            <input type="text" placeholder="Informe o nome" name="nome" id="nome">
+            <input type="number" placeholder="Informe a idade" name="" id="idade">
+            <input type="email" placeholder="Informe email" id="email">
+            <input type="date" id="data">
+            <input type="datetime-local" id="dataLocal">
+            <ol>
+                <li><input type="checkbox">Livros</li>
+                <li><input type="checkbox">Músicas</li>
+            </ol>
+            <input type="radio" name="genero" checked>Feminino
+            <input type="radio" name="genero">Masculino
+            <input type="password" placeholder="Informe senha" id="senha">
+            <textarea name="" id="" cols="50" rows="10" style="resize:none;"></textarea>
+            <select name="" id="">
+                <option value="um">Um</option>
+                <option value="dois">Dois</option>
+                <option value="tres">Três</option>
+            </select>
+            <img src="./imagens/imagens-surreais.jpg" alt="" width="100px" height="100px">
+            <input type="file" placeholder="Informe a imagem">
+
+        </form>
+        <button onclick="onSubmit()">Gravar</button>
+    </div>
+
+</body>
+
+</html>

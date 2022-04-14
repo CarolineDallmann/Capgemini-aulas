@@ -1,0 +1,72 @@
+.container {
+    width: 400px;
+    margin: auto;
+}
+
+.entrada {
+    width: 100%;
+}
+
+.botoes {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    width: 100%;
+    margin-bottom: 3px;
+    padding: 3px 2px;
+}
+
+button {
+    border: 1px solid black;
+    padding: 3px;
+    border-radius: 3px;
+}
+
+.salvar {
+    background-color: lightgreen;
+}
+
+.salvar:hover {
+    background-color: white;
+    color: lightgreen;
+}
+
+.cancelar {
+    background-color: lightcoral;
+}
+
+.cancelar:hover {
+    background-color: white;
+    color: lightcoral;
+}
+
+table {
+    width: 600px;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: lightblue;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: rgb(196, 205, 214);
+}
+
+tbody tr:hover {
+    background-color: rgba(173, 255, 255, 0.575);
+}
+
+td {
+    padding: 5px;
+
+}
+
+th {
+    padding: 8px;
+    text-align: left;
+}

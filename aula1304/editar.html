@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar</title>
+    <script src="./scripts/classes.js"></script>
+    <link rel="stylesheet" href="./estilos/estilo.css">
+</head>
+
+<body onload="pegarParametro()" >
+    <div class="container">
+        <h1>Editar Contato</h1>
+        <div class="entrada">
+            <input id="id" type="text" value="" disabled>
+            <input id="nome" type="text" placeholder="Informe nome" required>
+            <input id="telefone" type="text" placeholder="Informe telefone" required>
+            <input id="email" type="email" placeholder="Informe email" required>
+        </div>
+
+        <div class="botoes">
+            <button class="salvar" onclick="gravar()">Salvar</button>
+            <button class="cancelar">Cancelar</button>
+            <button onclick="excluir()">Excluir</button>
+        </div>
+    </div>
+
+</body>
+<script>
+    function pegarParametro() {
+        let params = new URLSearchParams(window.location.search)
+        let idContato = params.get('id')
+        document.getElementsByTagName('input')[0].value = idContato
+        let obj = new Contato()
+        obj.consultarPeloID(idContato, preencheForm)
+    }
+
+    function preencheForm(data) {
+        let obj = JSON.parse(data)
+        document.querySelector("#id").value = obj.id
+        document.querySelector("#nome").value = obj.nome
+        document.querySelector("#telefone").value = obj.telefone
+        document.querySelector("#email").value = obj.email
+    }
+
+    function gravar() {
+        var id = document.querySelector("#id").value
+        var nome = document.querySelector("#nome").value
+        var telefone = document.querySelector("#telefone").value
+        var email = document.querySelector("#email").value
+
+        let obj = new Contato(id, nome, telefone, email)
+
+        obj.update()
+        // window.history.back()
+
+    }
+
+    function excluir() {
+        let obj = new Contato()
+        obj.delete(document.querySelector("#id").value)
+    }
+
+    function voltar(){
+        window.history.back()
+    }
+
+</script>
+
+</html>

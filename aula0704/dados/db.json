@@ -1,0 +1,170 @@
+{
+  "contatos": [
+    {
+      "id": 1,
+      "nome": "Ana",
+      "telefone": "123-566",
+      "email": "ana@gmail.com"
+    },
+    {
+      "id": 2,
+      "nome": "João",
+      "telefone": "456-789",
+      "email": "joao@gmail.com"
+    },
+    {
+      "id": 3,
+      "nome": "Maria",
+      "telefone": "789-123",
+      "email": "maria@gmail.com"
+    },
+    {
+      "nome": "Carol",
+      "telefone": "(47)98863-5605",
+      "email": "caroline.dallmann@capgemini.com",
+      "id": 4
+    },
+    {
+      "nome": "Carol",
+      "telefone": "(47)98863-5605",
+      "email": "caroline.dallmann@capgemini.com",
+      "id": 5
+    },
+    {
+      "nome": "Carol",
+      "telefone": "(47)98863-5605",
+      "email": "caroline.dallmann@capgemini.com",
+      "id": 6
+    },
+    {
+      "nome": "Carol",
+      "telefone": "(47)98863-5605",
+      "email": "caroline.dallmann@capgemini.com",
+      "id": 7
+    },
+    {
+      "nome": "",
+      "telefone": "",
+      "email": "",
+      "id": 8
+    }
+  ],
+  "produtos": [
+    {
+      "id": 1,
+      "descricao": "Celular",
+      "preco": "2000",
+      "estoque": 10,
+      "categoria": "Eletrônicos",
+      "fornecedor": "Mario"
+    },
+    {
+      "id": 2,
+      "descricao": "Caderno",
+      "preco": "10",
+      "estoque": 50,
+      "categoria": "Papelaria",
+      "fornecedor": "Manuela"
+    },
+    {
+      "descricao": "livro",
+      "preco": "50",
+      "estoque": "5",
+      "fornecedor": "Manuela",
+      "categoria": "Papelaria",
+      "id": 3
+    },
+    {
+      "descricao": "impressora",
+      "preco": "500",
+      "estoque": "100",
+      "fornecedor": "Mario",
+      "categoria": "Eletrônicos",
+      "id": 4
+    },
+    {
+      "descricao": "impressora",
+      "preco": "500",
+      "estoque": "3",
+      "fornecedor": "Manuela",
+      "categoria": "Eletrônicos",
+      "id": 5
+    },
+    {
+      "descricao": "",
+      "preco": "",
+      "estoque": "",
+      "fornecedor": "Mario",
+      "categoria": "Eletrônicos",
+      "id": 6
+    },
+    {
+      "descricao": "",
+      "preco": "",
+      "estoque": "",
+      "fornecedor": "Mario",
+      "categoria": "Eletrônicos",
+      "id": 7
+    },
+    {
+      "descricao": "",
+      "preco": "",
+      "estoque": "",
+      "fornecedor": "Mario",
+      "categoria": "Eletrônicos",
+      "id": 8
+    }
+  ],
+  "fornecedores": [
+    {
+      "id": 1,
+      "nome": "Mario",
+      "telefone": "3333-5555",
+      "email": "mario@gmail.com"
+    },
+    {
+      "id": 2,
+      "nome": "Manuela",
+      "telefone": "3322-6688",
+      "email": "manu@gmail.com"
+    },
+    {
+      "nome": "André",
+      "telefone": "3382-9911",
+      "email": "andre@gmail.com",
+      "id": 3
+    },
+    {
+      "nome": "Carol",
+      "telefone": "(47)98863-5605",
+      "email": "caroline.dallmann@capgemini.com",
+      "id": 4
+    },
+    {
+      "nome": "André",
+      "telefone": "3382-9911",
+      "email": "andre@gmail.com",
+      "id": 5
+    },
+    {
+      "nome": "",
+      "telefone": "",
+      "email": "",
+      "id": 6
+    }
+  ],
+  "categorias": [
+    {
+      "id": 1,
+      "nome": "Eletrônicos"
+    },
+    {
+      "id": 2,
+      "nome": "Bazar"
+    },
+    {
+      "id": 3,
+      "nome": "Papelaria"
+    }
+  ]
+}

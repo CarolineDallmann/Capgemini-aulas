@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 300px;
+    margin: auto;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.form-control {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.salvar {
+    background-color: lightcoral;
+    color: white;
+    border: none;
+}
+.salvar:hover{
+    background-color: white;
+    color: lightcoral;
+    border: 1px solid lightcoral;
+}
+
+.cancelar {
+    background-color: lightslategray;
+    color: white;
+    border: none;
+}
+.cancelar:hover{
+    background-color: white;
+    color: lightslategray;
+    border: 1px solid lightslategray;
+}
+
+.btn {
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+}

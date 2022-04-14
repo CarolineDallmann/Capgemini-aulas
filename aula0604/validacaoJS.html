@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 300px;
+            margin: auto;
+        }
+
+        input {
+            width: 100%;
+            margin: 2px 0;
+        }
+
+        button {
+            margin: 10px 0;
+        }
+
+        label span {
+            color: rgb(197, 51, 51);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form action="#">
+            <div>
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" placeholder="Informe o nome" onblur="limpaMsg(this)">
+                <label id="msgCampo"></label>
+            </div>
+            <div>
+                <label for="telefone">Telefone</label>
+                <input type="text" id="telefone" placeholder="Informe o telefone" onblur="limpaMsg(this)">
+                <label id="msgCampo"></label>
+            </div>
+        </form>
+        <div>
+            <button onclick="onSubmit()">Salvar</button>
+        </div>
+    </div>
+    <script>
+        let nome = document.querySelector('#nome')
+        let telefone = document.querySelector('#telefone')
+        let msgCampo = document.querySelector('#msgCampo')
+
+        function limpaMsg(input) {
+
+            if (!input.value) {
+                input.nextElementSibling.innerHTML = "<span>Campo obrigatório</span>"
+            } else {
+                input.nextElementSibling.innerHTML = ""
+            }
+        }
+
+        function onSubmit() {
+            const deuCerto = document.querySelectorAll("input").every(input => {
+                if (!input.value) {
+                    input.nextElementSibling.innerHTML = "<span>Campo obrigatório</span>"
+                    input.focus()
+                    return false
+                } else {
+                    input.nextElementSibling.innerHTML = ""
+                    return true
+                }
+            })
+            if (deuCerto) {
+                document.getElementsByTagName('form')[0].submit()
+
+                nome.value = ""
+                telefone.value = ""
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

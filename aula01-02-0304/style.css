@@ -1,0 +1,12 @@
+body{
+    background-color: #fde4cf;
+   
+}
+
+a {
+    background-color: #457b9d;
+    color: white;
+    border-radius: 3px;
+    padding: 5px;
+    text-decoration: none;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            margin: auto;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            border-radius: 5px;
+            padding: 6px 3px;
+            margin-bottom: 5px;
+            border-color: blueviolet;
+        }
+
+        button {
+            width: 100%;
+            margin-bottom: 10px;
+            background-color: rgb(219, 147, 252);
+            border-radius: 5px;
+            height: 30px;
+        }
+
+        label {
+            width: 100%;
+            color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" id="nome" placeholder="Informe o nome">
+        <input type="text" id="sobrenome" placeholder="Informe o sobrenome">
+        <input type="number" id="idade" placeholder="Informe a idade">
+        <hr>
+        <button onclick="ola()">Mostrar mensagem</button>
+        <label id="mensagem"></label>
+    </div>
+    <script>
+        function ola() {
+            let mensagem = document.querySelector('#mensagem')
+            let nome = document.querySelector('#nome')
+            let sobrenome = document.querySelector('#sobrenome')
+            let idade = document.querySelector('#idade')
+
+            if (nome.value === "") {
+                mensagem.innerHTML = "Informe o nome";
+                nome.focus();
+                return;
+            }
+            if (sobrenome.value === "") {
+                mensagem.innerHTML = "Informe o sobrenome";
+                sobrenome.focus();
+                return;
+            }
+            if (idade.value === "") {
+                mensagem.innerHTML = "Informe a idade";
+                idade.focus();
+                return;
+            }
+
+            mensagem.innerHTML = `${nome.value} ${sobrenome.value}, você tem ${idade.value} anos, portanto é, ${idade.value > 18 ? 'maior' : 'menor'} de idade`
+
+            nome.value = ""
+            sobrenome.value = ""
+            idade.value = ""
+        }
+    </script>
+</body>
+
+</html>

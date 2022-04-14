@@ -1,0 +1,11 @@
+{
+    "produtos": [
+        {
+            "id": 1,
+            "nome": "Feijão",
+            "descricao": "Feijão preto safra 2022",
+            "preco": 7.89,
+            "imagem": "./imagens/feijao.jpg"
+        }
+    ]
+}
