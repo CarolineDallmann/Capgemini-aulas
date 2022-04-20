@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../typescript/scripts/funcoes.js"></script>
+</head>
+
+<body>
+    <input type="number" placeholder="Informe numero">
+    <input type="number" placeholder="Informe numero">
+    <button onclick="calcular()">Calcular</button>
+    <hr>
+    <label></label>
+</body>
+<script>
+    let input1 = document.getElementsByTagName('input')[0]
+    let input2 = document.getElementsByTagName('input')[1]
+    let label = document.getElementsByTagName('label')[0]
+
+    function calcular() {
+        if (validaDados()) {
+            var n1 = Number(document.getElementsByTagName('input')[0].value)
+            var n2 = Number(document.getElementsByTagName('input')[1].value)
+
+            var retorno = soma(n1, n2)
+            var retorno2 = subtracao(n1, n2)
+            var retorno3 = multiplicacao(n1, n2)
+            var retorno4 = divisao(n1, n2)
+
+
+            label.innerHTML = `
+        Adição: ${retorno} <hr>
+        Subtração: ${retorno2}<hr>
+        Multiplicação: ${retorno3}<hr>
+        Divisão: ${retorno4}
+        `
+        }
+
+    }
+
+    function validaDados() {
+        if (input1.value === '') {
+            label.innerHTML = "Informe número"
+            input1.focus()
+            return false
+        }
+        if (input2.value === '') {
+            label.innerHTML = "Informe número"
+            input2.focus()
+            return false
+        }
+        return true
+    }
+</script>
+
+</html>

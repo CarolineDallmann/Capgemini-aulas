@@ -1,0 +1,12 @@
+"use strict";
+var boletim;
+boletim = ['maria', 9.0, 75];
+console.log(boletim);
+var estoque;
+estoque = ['feijão', 150];
+console.log(estoque);
+var participantes = [];
+participantes.push(['José', 26]);
+participantes.push(['Ana', 18]);
+participantes.push(['Maria', 16]);
+console.log(participantes);
