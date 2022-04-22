@@ -1,0 +1,21 @@
+abstract class Pessoa {
+    id: number;
+    nome: string;
+    contato: string;
+    constructor(id: number, nome: string, contato: string) {
+        this.id = id,
+            this.nome = nome,
+            this.contato = contato
+    }
+
+    abstract salvar(): boolean ;
+
+    display(): string {
+        return `Id: ${this.id}, Nome: ${this.nome}, Contato: ${this.contato}`
+    }
+}
+
+// let p1: Pessoa = new Pessoa(1, 'maria', '88888')
+// console.log(p1.display());
+
+export default Pessoa
