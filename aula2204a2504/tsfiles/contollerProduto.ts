@@ -1,23 +1,30 @@
+interface IDao<T> {
+    salvar(obj: T): void;
+    alterar(obj: T): void;
+    excluir(id: number): void;
+    consultarTodos(callback: (x: T[]) => {}): void;
+    consultarPorId(id: number, callback: (x: T) => {}): void;
+}
+
 class Produto {
     id: number;
     descricao: string;
     preco: number;
     estoque: number;
     constructor(id: number, descricao: string, preco: number, estoque: number) {
-        this.id = id,
-            this.descricao = descricao,
-            this.preco = preco,
-            this.estoque = estoque
+        this.id = id
+        this.descricao = descricao
+        this.preco = preco
+        this.estoque = estoque
     }
 }
-
 class ModelProduto {
     salvar(obj: Produto): void {
         fetch('http://localhost:3000/produtos', {
             method: 'POST',
             body: JSON.stringify(obj),
             headers: {
-                'content-type': 'application/json'
+                'Content-type': 'Application/json'
             }
         })
     }
@@ -32,23 +39,14 @@ class ModelProduto {
         fetch('http://localhost:3000/produtos')
             .then(x => x.json())
             .then(data => callback(data))
-
     }
 
+    /** 1)callback  2)async/await => promisse */
     consultarPorId(id: number, callback: (s: Produto) => {}) {
         fetch(`http://localhost:3000/produtos/${id}`)
             .then(x => x.json())
             .then(data => callback(data))
-
     }
-}
-
-interface IDao<T> {
-    salvar(obj: T): void
-    alterar(obj: T): void
-    excluir(id: number): void
-    consultarTodos(callback: (x: T[]) => {}): void;
-    consultarPorId(id: number, callback: (x: T) => {}): void;
 }
 
 /**Controller item */
@@ -63,8 +61,8 @@ class Item {
     }
 }
 
-/**Model Item */
-class ModelItem implements IDao<Item>{
+/**Modelo Item */
+class ModelItem implements IDao<Item> {
     alterar(obj: Item): void {
         throw new Error("Method not implemented.");
     }
@@ -87,12 +85,12 @@ class ModelItem implements IDao<Item>{
                 }
             }
         )
-            .then(x => x.json())
-            .then(data => console.log(data))
+        .then(x => x.json())
+        .then(data => console.log(data))
     }
 }
 
-/*Carrinho*/
+/**Carrinho de compras */
 class Carrinho{
    itens: Item[]
    data: string
@@ -134,5 +132,5 @@ class ModelCarrinho implements IDao<Carrinho> {
     consultarPorId(id: number, callback: (x: Carrinho) => {}): void {
         throw new Error("Method not implemented.");
     }
-
+    
 }

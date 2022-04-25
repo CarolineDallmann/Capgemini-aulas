@@ -39,33 +39,6 @@
   ],
   "itens": [],
   "carrinho": [
-    {
-      "itens": [
-        {
-          "produto": {
-            "id": 1,
-            "descricao": "feijão",
-            "preco": 7.89,
-            "estoque": 10
-          },
-          "precoItem": 7.89,
-          "qtde": 10
-        },
-        {
-          "produto": {
-            "id": 2,
-            "descricao": "arroz",
-            "preco": 15,
-            "estoque": 10
-          },
-          "precoItem": 15,
-          "qtde": 10
-        }
-      ],
-      "data": "22/04/2022",
-      "cliente": "c",
-      "finalizado": true,
-      "id": 1
-    }
+    
   ]
 }
