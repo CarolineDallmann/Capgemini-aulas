@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <script src="../scripts/tsfiles/contollerProduto.js"></script>
+    <style>
+        input {
+            margin: 5px 0px;
+        }
+
+        .divImputs {
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+        }
+
+        .divButton {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .material-symbols-outlined {
+            width: 20px;
+            height: 16px;
+        }
+    </style>
+</head>
+
+<body onload="load()">
+    <h3>Cadastro de Produto</h3>
+    <div class="divImputs">
+        <input type="text" id="descricao" placeholder="Digite descrição">
+        <input type="number" id="preco" placeholder="Digite preco">
+        <input type="number" id="estoque" placeholder="Digite estoque">
+    </div>
+    <div class="divButton">
+
+        <button onclick="inserir()">Inserir Produto</button>
+        <!-- <button onclick="efetivarGravacaoItem()">Gravar Item</button> -->
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descrição</th>
+                <th>Preço</th>
+                <th>Estoque</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- dinamico -->
+        </tbody>
+    </table>
+    <input type="text" placeholder="Informe seu nome" id="nomeCliente" />
+    <button onclick="finalizarCarrinho()">Finalizar Carrinho</button>
+</body>
+<script>
+    var carrinho = new Carrinho('22/04/2022', 'Navegante');
+    console.log(carrinho);
+
+    function load() {
+        let x = new ModelProduto()
+        x.consultarTodos(displayTabela)
+
+    }
+    function displayTabela(dados) {
+        let trs = ''
+        for (let indice in dados) {
+            trs += `
+            <tr>
+                <td>${dados[indice].id}</td>
+                <td>${dados[indice].descricao}</td>
+                <td>${dados[indice].preco}</td>
+                <td>${dados[indice].estoque}</td>
+                <td><button onclick="efetivarGravacaoItem(${dados[indice].id})"><span class="material-symbols-outlined">add_shopping_cart</span></button> </td>
+            </tr>`
+        }
+        document.getElementsByTagName('tbody')[0].innerHTML = trs
+    }
+
+
+    function inserirItem(dados) {
+        let it = new Item(dados, dados.preco, 10);
+        addItemCarrinho(it)
+    }
+
+    function efetivarGravacaoItem(idproduto, callback) {
+        let x = new ModelProduto();
+        x.consultarPorId(idproduto, inserirItem)
+    }
+
+    function finalizarCarrinho() {
+        var nomeCliente = document.getElementById("nomeCliente")
+        if (nomeCliente.value === '') {
+            alert("informe nome do cliente")
+            nomeCliente.focus()
+            return;
+        }
+        carrinho.finalizado = true
+        carrinho.cliente = nomeCliente.value
+        let x = new ModelCarrinho()
+        x.salvar(carrinho)
+    }
+
+    function addItemCarrinho(item) {
+        carrinho.add(item)
+    }
+
+
+    function inserir() {
+        if (validaInputs()) {
+            //controller
+            var obj = {}
+
+            inputsId.forEach(id => {
+                obj[id] = document.querySelector(`#${id}`).value
+            });
+            //x = Model => acessa os dados onde estão armazenados ou envia da view para o db
+            let x = new ModelProduto()
+            x.salvar(obj)
+        }
+        limpaInputs()
+    }
+
+    let inputsId = ['descricao', 'preco', 'estoque']
+
+    function validaInputs() {
+        for (let id of inputsId) {
+            let input = document.querySelector(`#${id}`)
+            if (!input.value) {
+                alert("Campo Obrigatório")
+                input.focus()
+                return false
+            }
+        }
+        return true
+    }
+
+    function limpaInputs() {
+        inputsId.forEach(id => {
+            document.querySelector(`#${id}`).value = ''
+        }
+        )
+    }
+</script>
+
+</html>
