@@ -1,0 +1,10 @@
+<div class="container">
+    <h3>Cadastro de contatos</h3>
+    <input [(ngModel)]="nome" type="text" placeholder="Nome" id="nome">
+    <input [(ngModel)]="email" type="email" placeholder="Email" id="email">
+    <input [(ngModel)]="telefone" type="text" placeholder="Telefone" id="telefone">
+</div>
+<div class="botoes">
+    <app-botao texto="Salvar" (fuiClicado)="salvar()"></app-botao>
+    <app-botao texto="Cancelar" severidade="danger"></app-botao>
+</div>

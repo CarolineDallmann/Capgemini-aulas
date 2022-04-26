@@ -1,0 +1,33 @@
+button {
+    width: 150px;
+    margin-right: 10px;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.bt-primary {
+    background-color: lightseagreen;
+}
+
+.bt-primary:hover {
+    background-color: white;
+    border: 1px solid lightseagreen;
+}
+
+.bt-danger {
+    background-color: lightcoral;
+}
+
+.bt-danger:hover {
+    background-color: white;
+    border: 1px solid lightcoral;
+}
+
+.bt-secondary {
+    background-color: lightblue;
+}
+
+.bt-secondary:hover {
+    background-color: white;
+    border: 1px solid lightblue;
+}
