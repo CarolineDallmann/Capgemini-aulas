@@ -17,6 +17,12 @@
       "email": "jose@gmail.com",
       "telefone": "(47)98863-5689",
       "id": 3
+    },
+    {
+      "nome": "Carol s",
+      "email": "carolinedallmann@gmail.com",
+      "telefone": "44444444",
+      "id": 4
     }
   ]
 }
