@@ -1,0 +1,52 @@
+{
+  "contatos": [
+    {
+      "nome": "Carol",
+      "email": "caroline.dallmann@capgemini.com",
+      "telefone": "(47)98863-5605",
+      "id": 1
+    },
+    {
+      "nome": "André",
+      "email": "andre@gmail.com",
+      "telefone": "3382-9911",
+      "id": 2
+    },
+    {
+      "nome": "jose",
+      "email": "jose@gmail.com",
+      "telefone": "(47)98863-5689",
+      "id": 3
+    },
+    {
+      "nome": "Carol s",
+      "email": "carolinedallmann@gmail.com",
+      "telefone": "44444444",
+      "id": 4
+    },
+    {
+      "nome": "ana",
+      "email": "ana@gmail.com",
+      "fone": "55555",
+      "id": 5
+    },
+    {
+      "nome": "pedro",
+      "email": "pedro@gmail.com",
+      "fone": "101010",
+      "id": 6
+    },
+    {
+      "nome": "maria",
+      "email": "maria@gmailcom",
+      "fone": "111111",
+      "id": 7
+    },
+    {
+      "nome": "carlos",
+      "email": "carlos@gmail.com",
+      "fone": "9999",
+      "id": 8
+    }
+  ]
+}
