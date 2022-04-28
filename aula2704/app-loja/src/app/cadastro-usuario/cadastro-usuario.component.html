@@ -1,0 +1,10 @@
+<div class="container">
+    <form #f="ngForm" (ngSubmit)="saveUsuario(f.value)">
+        <input class="form-control m-1" ngModel name="nome" type="text" placeholder="Nome">
+        <input class="form-control m-1" ngModel name="email" type="text" placeholder="Email">
+        <input class="form-control m-1" ngModel name="senha" type="password" placeholder="Senha">
+        <button class="btn btn-primary m-1">Cadastrar</button>
+    </form>
+
+</div>
+<label>{{msg}}</label>
