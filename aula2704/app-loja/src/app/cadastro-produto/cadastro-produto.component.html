@@ -1,17 +1,18 @@
 <div class="container">
     <form #f="ngForm" (ngSubmit)="saveProduto(f.value)">
-        <input class="form-control m-1" ngModel name="descricao" type="text" placeholder="Descrição">
-        <input class="form-control m-1" ngModel name="valor" type="text" placeholder="Valor">
-        <input class="form-control m-1" ngModel name="estoque" type="text" placeholder="Estoque">
-        <button class="btn btn-primary m-1">Salvar</button>
+        <h2 class="m-2 p-2">Cadastro de Produtos</h2>
+        <input class="form-control m-1" ngModel name="descricao" type="text" placeholder="Descrição *" required>
+        <input class="form-control m-1" ngModel name="valor" type="text" placeholder="Valor *" required>
+        <input class="form-control m-1" ngModel name="estoque" type="text" placeholder="Estoque *" required>
+        <label *ngIf="f.invalid">* Campos obrigatórios</label>
+        <div><button [disabled]="f.invalid" class="btn btn-primary m-1">Salvar</button></div>
     </form>
 
 </div>
 <label>{{msg}}</label>
 
-
-
 <div>
+    <h2 class="m-2 p-2">Produtos Cadastrados</h2>
     <table class="table">
         <thead class="bg-secondary">
             <tr>
@@ -19,7 +20,8 @@
                 <th>Descrição</th>
                 <th>Preço</th>
                 <th>Estoque</th>
-                <th>Açoes</th>
+                <th>Editar</th>
+                <th>Excluir</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +31,8 @@
                 <td> {{ prod.valor }}</td>
                 <td> {{ prod.estoque }}</td>
                 <td> <a [routerLink]="['/produtos',prod.id]"><i class="material-symbols-outlined">edit</i></a></td>
+                <td> <a role="button" style="color: rgb(245, 81, 81)" (click)="excluir(prod.id)"><i
+                            class="material-symbols-outlined">delete</i></a></td>
             </tr>
         </tbody>
     </table>

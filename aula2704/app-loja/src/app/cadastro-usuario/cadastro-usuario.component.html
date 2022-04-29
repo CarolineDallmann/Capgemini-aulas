@@ -1,10 +1,17 @@
 <div class="container">
     <form #f="ngForm" (ngSubmit)="saveUsuario(f.value)">
-        <input class="form-control m-1" ngModel name="nome" type="text" placeholder="Nome">
-        <input class="form-control m-1" ngModel name="email" type="text" placeholder="Email">
-        <input class="form-control m-1" ngModel name="senha" type="password" placeholder="Senha">
-        <button class="btn btn-primary m-1">Cadastrar</button>
+        <h2 class="m-2 p-2">Cadastro de Usuários</h2>
+        <input class="form-control m-1" ngModel name="nome" type="text" placeholder="Nome *" required>
+        <input class="form-control m-1" ngModel name="email" type="text" placeholder="Email *" required>
+        <input class="form-control m-1" ngModel name="senha" type="password" placeholder="Senha *"required>
+        <label *ngIf="f.invalid">* Campos obrigatórios</label>
+        <div>
+            <button [disabled]="f.invalid" class="btn btn-primary m-1" >Cadastrar</button>
+            
+        </div>
+       
     </form>
-
 </div>
 <label>{{msg}}</label>
+
+<router-outlet></router-outlet>

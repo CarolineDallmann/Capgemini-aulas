@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { JsonpClientBackend } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,12 +13,28 @@ export class AppComponent {
 
   pegarPerfilUsuarioConectado() {
     let user: (string | null) = localStorage.getItem("userConectado")
-    if (user != null){
+    if (user != null) {
       user = JSON.parse(user)
-    this.userLogado = user}
+      this.userLogado = user
+    }
   }
 
-  constructor() {
+  constructor(private router: Router) {
     this.pegarPerfilUsuarioConectado();
+    const outroThis = this
+    const originalSetItem = localStorage.setItem;
+    localStorage.setItem = function (key, value) {
+      originalSetItem.apply(this, [key, value])
+      if(key === 'userConectado'){
+        outroThis.pegarPerfilUsuarioConectado()
+      }
+    }
+
+  }
+
+  logout() {
+    localStorage.removeItem('userConectado')
+    this.userLogado = {}
+    this.router.navigate(['/login']);
   }
 }

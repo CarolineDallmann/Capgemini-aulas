@@ -1,6 +1,27 @@
-<p>editaproduto works!</p>
-<p>{{ produto.id }}</p>
-<p>{{ produto.descricao }}</p>
-<p>{{ produto.preco }}</p>
-<p>{{ produto.estoque }}</p>
+<div class="container">
+    <h2 class="m-2 p-2">Alteração de Produtos</h2>
+    <div class="form-floating mb-3">
+        <input class="form-control m-1" [(ngModel)]="produto.id" type="text" id="id" required name="id" #id="ngModel">
+        <label for="floatingInput">Id</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input class="form-control m-1" [(ngModel)]="produto.descricao" type="text" id="descricao" required
+            name="descricao" #descricao="ngModel">
+        <label for="floatingInput">Descrição</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input class="form-control m-1" [(ngModel)]="produto.valor" type="text" id="valor" required name="valor"
+            #valor="ngModel">
+        <label for="floatingInput">Valor</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input class="form-control m-1" [(ngModel)]="produto.estoque" type="text" id="estoque" required name="estoque"
+            #estoque="ngModel">
+        <label for="floatingInput">Estoque</label>
+    </div>
+    <label *ngIf="id.invalid || descricao.invalid || valor.invalid || estoque.invalid">* Campo obrigatório</label>
+    <div><button [disabled]="id.invalid || descricao.invalid || valor.invalid || estoque.invalid"
+            class="btn btn-primary m-1" (click)="efetivarAlteracao()">Salvar</button></div>
+</div>
+<label>{{msg}}</label>
 

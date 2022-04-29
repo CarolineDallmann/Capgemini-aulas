@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UsuarioService } from './usuario.service';
 
 @Component({
@@ -11,17 +12,14 @@ export class CadastroUsuarioComponent implements OnInit {
   msg: string = ''
 
   saveUsuario(data: any) {
+  
        data = { ...data, perfil:'USER' }
-    this.serviceUsuario.save(data).subscribe(x => this.msg = `Usuário salvo com sucesso`)
+    this.serviceUsuario.save(data).subscribe(x => this.router.navigate(['/login']))
+    
   }
 
-  // limparInput(data:any) {
-  //   data = {}
-  //   console.log('chamou');
 
-  // }
-
-  constructor(private serviceUsuario: UsuarioService) { }
+  constructor(private serviceUsuario: UsuarioService,private router: Router) { }
 
   ngOnInit(): void {
   }

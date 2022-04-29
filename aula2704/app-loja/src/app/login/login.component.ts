@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UsuarioService } from '../cadastro-usuario/usuario.service';
 
 @Component({
@@ -8,14 +9,14 @@ import { UsuarioService } from '../cadastro-usuario/usuario.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private serviceUsuario: UsuarioService) { }
+  constructor(private serviceUsuario: UsuarioService, private router: Router) { }
 
   usuarios: any
   usuarioConectado = {
     id: 0,
     nome: "",
     email: "",
-    senha:"",
+    senha: "",
     perfil: "",
   }
 
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
     this.serviceUsuario.getAll().subscribe(x => {
       this.usuarios = x
       this.verificarLogin(dados.email, dados.senha, this.usuarios)
+      this.router.navigate(['/home']);
     })
   }
 
@@ -38,12 +40,9 @@ export class LoginComponent implements OnInit {
         this.gravarDadosLocalStorage()
       }
     }
-    window.location.reload()
   }
 
-  gravarDadosLocalStorage(){
-    console.log('ok');
-    
+  gravarDadosLocalStorage() {
     localStorage.setItem("userConectado", JSON.stringify(this.usuarioConectado))
   }
 

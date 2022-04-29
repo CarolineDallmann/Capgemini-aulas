@@ -1,28 +1,40 @@
 {
   "produtos": [
     {
-      "id": 1,
-      "descricao": "tv",
-      "valor": 2000,
-      "estoque": 10
+      "descricao": "impressora",
+      "valor": "500",
+      "estoque": "30",
+      "id": 3
     },
     {
       "descricao": "livro",
-      "valor": 15,
-      "estoque": 100,
-      "id": 2
+      "valor": "30",
+      "estoque": "15",
+      "id": 4
     },
     {
-      "descricao": "impressora",
-      "valor": "500",
+      "descricao": "tv",
+      "valor": "1000",
       "estoque": "10",
-      "id": 3
+      "id": 5
+    },
+    {
+      "descricao": "notebook",
+      "valor": "4000",
+      "estoque": "10",
+      "id": 7
+    },
+    {
+      "descricao": "livro",
+      "valor": "50",
+      "estoque": "10",
+      "id": 8
     }
   ],
   "usuarios": [
     {
       "id": 1,
-      "nome": "ana",
+      "nome": "Ana Maria",
       "email": "ana123",
       "senha": "456",
       "perfil": "ADM"
@@ -33,6 +45,27 @@
       "email": "andre789",
       "senha": "456",
       "perfil": "USER"
+    },
+    {
+      "nome": "carlos",
+      "email": "carlos@gmail.com",
+      "senha": "123",
+      "perfil": "USER",
+      "id": 3
+    },
+    {
+      "nome": "Carol",
+      "email": "carolinedallmann@gmail.com",
+      "senha": "123",
+      "perfil": "USER",
+      "id": 4
+    },
+    {
+      "nome": "André",
+      "email": "andre@gmail.com",
+      "senha": "123",
+      "perfil": "USER",
+      "id": 5
     }
   ],
   "carrinho": []
